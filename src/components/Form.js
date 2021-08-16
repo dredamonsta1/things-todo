@@ -15,7 +15,7 @@ function Form(props) {
     } 
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} >
         <h2 className="label-wrapper">
           <label htmlFor="new-todo-input" className="label__lg">
             What needs to be done?
@@ -30,7 +30,7 @@ function Form(props) {
           value={name}
           onChange={handleChange}
         />
-        <button type="submit" className="btn btn__primary btn__lg">
+        <button type="submit" className="btn btn__primary btn__lg" disabled={!name}>
           Add
         </button>
       </form>
