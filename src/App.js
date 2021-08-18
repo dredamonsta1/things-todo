@@ -6,6 +6,12 @@ import Todo from "./components/Todo";
 
 function App(props) {
   const [tasks, setTasks] = useState(props.tasks);
+  const [filter, setFilter] = useState('All');
+  const FILTER_MAP = {
+    All: () => true,
+    Active: task => !task.completed,
+    completed: task => task.completed
+  };
 
   function addTask(name){
     const newTask = { id: "todo-" + nanoid(), name: name, completed: false };
