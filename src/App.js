@@ -17,6 +17,7 @@ function App(props) {
     const newTask = { id: "todo-" + nanoid(), name: name, completed: false };
     setTasks([...tasks, newTask]);
   }
+  const FILTER_NAMES = Object.keys(FILTER_MAP);
 
   function toggleTaskCompleted(id) {
     const updatedTasks = tasks.map(task => {
@@ -62,6 +63,15 @@ function App(props) {
     />
   ));
 
+  const filterList = FILTER_NAMES.map(name => (
+    <FilterButton 
+    key={name} 
+    name={name}
+    isPressed={name === filter}
+    setFilter={setFilter} 
+    />
+  ));
+
 const tasksNoun = taskList.length !==1 ? 'tasks' : 'task';
 const headingText = `${taskList.length} ${tasksNoun} remainig`;
 
@@ -70,9 +80,7 @@ const headingText = `${taskList.length} ${tasksNoun} remainig`;
       <h1>TodoMatic</h1>
       <Form addTask={addTask} />
       <div className="filters btn-group stack-exception">
-        <FilterButton />
-        <FilterButton />
-        <FilterButton />
+        {filterList}
       </div>
       <h2 id="list-heading">
         {headingText}
