@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 
 export default function Todo(props) {
@@ -82,6 +82,14 @@ export default function Todo(props) {
             </div>
         </div>
       );
+      
+      useEffect(() => {
+        if (isEditing) {
+          editFieldRef.current.focus();
+        } else {
+          editButtonRef.current.focus();
+        }
+      }, [isEditing]);
 
     return <li className="todo">{isEditing ? editingTemplate : viewTemplate}</li>
 }
