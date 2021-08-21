@@ -1,0 +1,15 @@
+// eslint-disable-next-line no-unused-vars
+import React, { useRef, useEffect } from "react";
+
+
+function usePrevious(value) {
+    const ref = useRef();
+    useEffect(() => {
+        ref.current = value;
+    });
+    return ref.current;
+}
+        
+      
+
+export default usePrevious;
