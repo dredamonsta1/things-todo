@@ -5,14 +5,6 @@ import FilterButton from "./components/FilterButton";
 import Todo from "./components/Todo";
 import usePrevious from "./usePrevious";
 
-// function usePrevious(value) {
-//   const ref = useRef();
-//   useEffect(() => {
-//     ref.current = value;
-//   });
-//   return ref.current;
-// }
-
 function App(props) {
   const [tasks, setTasks] = useState(props.tasks);
   const [filter, setFilter] = useState('All');
